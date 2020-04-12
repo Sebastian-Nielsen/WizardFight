@@ -19,9 +19,15 @@ public class Player : MonoBehaviour
     private float moveInput;
     private Rigidbody2D rb;
 
+    public GameObject debugYellowCircle;
+
+    private Transform tipOfWand;
+    private BoxCollider2D tipOfWand_BoxC;
 
     private void Start()
     {
+        tipOfWand = transform.Find("wand").Find("End of wand");
+        tipOfWand_BoxC = tipOfWand.GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -32,6 +38,12 @@ public class Player : MonoBehaviour
 
         // Set the speed of the player
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+    }
+
+    private void DisableBoxC()
+    {
+        print("boxCol disabled");
+        tipOfWand_BoxC.enabled = false;
     }
 
     private void Update()
@@ -51,15 +63,37 @@ public class Player : MonoBehaviour
         }
 
         /*
-         * Jump movement
+         * Defend
          */
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = Vector2.up * jumpForce;
+            tipOfWand_BoxC.enabled = true;
+            Invoke(nameof(DisableBoxC), 0.1f);
+
+            // print("We have been TRIGGERED");
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(tipOfWand.position, 2f,
+                LayerMask.GetMask("Projectile"));
+            Collider2D col = Physics2D.OverlapCircle(tipOfWand.position, 2f,
+                LayerMask.GetMask("Projectile"));
+            // print(colliders.Length);
+            // print(col);
+
+            // col.transform.rota;
+
+            // print("-------");
+
+            GameObject x = Instantiate(debugYellowCircle, tipOfWand.position, Quaternion.identity);
+            Destroy(x, 3f);
         }
 
         /*
-         * Attack movement
+         * Jump movement
+         */
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.UpArrow) && _isGrounded)
+            rb.velocity = Vector2.up * jumpForce;
+
+        /*
+         * Wand movement
          */
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -85,7 +119,7 @@ public class Player : MonoBehaviour
 
     }
 
-    public bool isFacingRight()
+    public bool IsFacingRight()
     {
         return _isFacingRight;
     }

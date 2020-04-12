@@ -11,14 +11,25 @@ public class Projectile : MonoBehaviour
 
     private float startTime;
 
-    private void OnTriggerEnter2D(Collider2D c)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        moveSpeed = 1;
+        // 'other.GetComponent<Collider2D>().gameObject' is the "wand" gameObject
+        if (other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Wand"))
+        {
+            // 'other.transform' is Transform of "wand"
+            // 'other.transform.parent.parent' is Transform of "wizard"
+            if (other.transform.parent.parent.gameObject.GetComponent<Player>().IsFacingRight())
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            else
+                transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void Start()
     {
+        // Physics.IgnoreCollision();
         startTime = Time.time;
+        // transform.eulerAngles = new Vector3(0, 180, 0);
         Destroy(gameObject, lifeTime);
     }
 

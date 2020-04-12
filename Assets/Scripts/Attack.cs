@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour
     private void SpawnProjectile(float angleFacingLeft, float angleFacingRight)
     {
         Vector3 spawnPos = wizardPlayer.transform.position +
-                           (playerClass.isFacingRight() ? Vector3.right : Vector3.left);
+                           (playerClass.IsFacingRight() ? Vector3.right : Vector3.left);
         Instantiate(
             yellowCircle,
             spawnPos,
@@ -67,7 +67,7 @@ public class Attack : MonoBehaviour
         Instantiate(
             projectile, // projectile gameObject
             spawnPos, // Spawn pos of projectile
-            playerClass.isFacingRight() // rotation of the spawned obj
+            playerClass.IsFacingRight() // rotation of the spawned obj
                 ? Quaternion.Euler(0, 0, angleFacingRight)
                 : Quaternion.Euler(0, 0, angleFacingLeft)
         );

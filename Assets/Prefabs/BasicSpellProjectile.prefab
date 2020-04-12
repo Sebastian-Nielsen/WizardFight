@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3001406773699759679}
   - component: {fileID: 5682759642586811475}
   - component: {fileID: -2250707661764610120}
+  - component: {fileID: 1810945322}
   m_Layer: 11
   m_Name: BasicSpellProjectile
   m_TagString: Untagged
@@ -46,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847c408440bc0324cb637f7ac0e11341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  lifeTime: 3
+  moveSpeed: 3
+  lifeTime: 7
 --- !u!50 &-2250707661764610120
 Rigidbody2D:
   serializedVersion: 4
@@ -69,6 +70,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1810945322
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404120025828870181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13231838, y: 0.027832389}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3175156, y: 0.13719106}
+  m_EdgeRadius: 0
 --- !u!1 &2135301761547566667
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135301761547566667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11400008, y: 0.054999948, z: 2}
+  m_LocalPosition: {x: -0.11400008, y: 0.054999948, z: 0}
   m_LocalScale: {x: 0.118856214, y: 0.05777242, z: 1}
   m_Children: []
   m_Father: {fileID: 3001406773699759679}
@@ -239,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135301761920668537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.572, y: 0.008000016, z: 2}
+  m_LocalPosition: {x: -0.572, y: 0.008000016, z: 0}
   m_LocalScale: {x: 0.303, y: 0.020497987, z: 1}
   m_Children: []
   m_Father: {fileID: 3001406773699759679}
