@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\sebas\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sebas\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Wizard fight.-1281794017.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sebas\OneDrive\Dokumenter\Wizard fight" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Attack.cs" t="Include" />
+          <e p="DirectionNamespace.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="Projectile.cs" t="Include" />
+          <e p="VerticalPlatform.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Wizard fight.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
